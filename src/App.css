@@ -4,14 +4,25 @@
 }
 
 @font-face {
-  font-family: "Kaushan Script";
-  src: url("../src/assets/fonts/kaushanscript-regular-webfont.woff2")
-      format("woff2"),
-    url("./src/assets/fontskaushanscript-regular-webfont.woff") format("woff");
+  font-family: "Action Man";
+  src: url("../src/assets/fonts/action_man-webfont.woff2") format("woff2"),
+    url("../src/assets/fonts/action_man-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Action Man Bold";
+  src: url("../src/assets/fonts/action_man_bold-webfont.woff2") format("woff2"),
+    url("../src/assets/fonts/action_man_bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 body {
-  font-family: "Kaushan Script", "Courier New", Courier, monospace;
+  font-family: "Action Man", "Courier New", Courier, monospace;
+}
+
+h1 {
+  font-family: "Action Man Bold", "Courier New", Courier, monospace;
 }
