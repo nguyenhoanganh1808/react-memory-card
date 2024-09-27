@@ -11,17 +11,17 @@ export default function GameBoard() {
   const [isLoading, setIsLoading] = useState(true);
   const [bestScore, setBestScore] = useState(0);
 
-  // useEffect(() => {
-  //   const ignore = false;
-  //   setIsLoading(true);
-  //   fetchCardData(12)
-  //     .then((result) => {
-  //       if (!ignore) {
-  //         setCharacters(makeRandomArray(result));
-  //       }
-  //     })
-  //     .finally(() => setIsLoading(false));
-  // }, []);
+  useEffect(() => {
+    const ignore = false;
+    setIsLoading(true);
+    fetchCardData(12)
+      .then((result) => {
+        if (!ignore) {
+          setCharacters(makeRandomArray(result));
+        }
+      })
+      .finally(() => setIsLoading(false));
+  }, []);
 
   function handleClickCard(id) {
     const selectedId = selectedIds.find((selectedId) => selectedId === id);
