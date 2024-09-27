@@ -9,6 +9,8 @@ export default function GameBoard() {
   const [characters, setCharacters] = useState([]);
   const [selectedIds, setSelectedIds] = useState([]);
 
+  const [bestScore, setBestScore] = useState(0);
+
   useEffect(() => {
     const ignore = false;
     fetchCardData(12).then((result) => {
@@ -20,20 +22,30 @@ export default function GameBoard() {
 
   function handleClickCard(id) {
     const selectedId = selectedIds.find((selectedId) => selectedId === id);
-    console.log(selectedIds);
+
     if (selectedId) {
       // If the card is already click by user, display lose
       console.log("lose");
+      setBestScore(
+        selectedIds.length > bestScore ? selectedIds.length : bestScore
+      );
+
       // Reset the game
       setSelectedIds([]);
     } else {
-      setSelectedIds([...selectedIds, selectedId]);
+      // Or else the card not click by user, add it to selectedIds
+      setSelectedIds([...selectedIds, id]);
+      setCharacters(makeRandomArray(characters));
+    }
+    if (selectedIds.length === characters.length - 1) {
+      console.log("win");
+      setBestScore(selectedIds.length);
     }
   }
 
   return (
     <>
-      <Header />
+      <Header score={selectedIds.length} bestScore={bestScore} />
       <GridCardList characters={characters} handleClickCard={handleClickCard} />
     </>
   );
