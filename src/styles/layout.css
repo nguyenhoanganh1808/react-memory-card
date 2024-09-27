@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  color: var(--accent-color);
+}
+
+.header > h1 {
+  margin-bottom: 12px;
+}
+
+body {
+  background-color: var(--background-color);
+}
