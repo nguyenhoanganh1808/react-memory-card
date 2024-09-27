@@ -4,6 +4,7 @@
   text-align: center;
 
   border-radius: 12px;
+  max-height: 400px;
 }
 
 .card p {

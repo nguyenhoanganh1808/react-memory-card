@@ -23,3 +23,15 @@ export async function fetchCardData(length) {
   }
   return result;
 }
+
+export function makeRandomArray(characters) {
+  const copyArray = [...characters];
+  let result = [];
+  while (copyArray.length > 0) {
+    const randomIndex = Math.floor(Math.random() * copyArray.length);
+    result.push(copyArray[randomIndex]);
+    copyArray.splice(randomIndex, 1);
+  }
+
+  return result;
+}
