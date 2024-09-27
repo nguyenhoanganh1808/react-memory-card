@@ -8,17 +8,20 @@ import GridCardList from "../components/GridCardList";
 export default function GameBoard() {
   const [characters, setCharacters] = useState([]);
   const [selectedIds, setSelectedIds] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(true);
   const [bestScore, setBestScore] = useState(0);
 
-  useEffect(() => {
-    const ignore = false;
-    fetchCardData(12).then((result) => {
-      if (!ignore) {
-        setCharacters(makeRandomArray(result));
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   const ignore = false;
+  //   setIsLoading(true);
+  //   fetchCardData(12)
+  //     .then((result) => {
+  //       if (!ignore) {
+  //         setCharacters(makeRandomArray(result));
+  //       }
+  //     })
+  //     .finally(() => setIsLoading(false));
+  // }, []);
 
   function handleClickCard(id) {
     const selectedId = selectedIds.find((selectedId) => selectedId === id);
@@ -41,6 +44,10 @@ export default function GameBoard() {
       console.log("win");
       setBestScore(selectedIds.length);
     }
+  }
+
+  if (isLoading) {
+    return <h1 className="loading">Loading...</h1>;
   }
 
   return (
